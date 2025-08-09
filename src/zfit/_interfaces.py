@@ -241,6 +241,10 @@ class ZfitData(ZfitDimensional):
         raise NotImplementedError
 
     @abstractmethod
+    def to_numpy(self) -> np.ndarray:
+        raise NotImplementedError
+
+    @abstractmethod
     def to_binned(self, binning: ztyping.BinningTypeInput):
         raise NotImplementedError
 
@@ -950,10 +954,6 @@ class ZfitPDF(ZfitModel):
     @property
     @abstractmethod
     def is_extended(self) -> bool:
-        raise NotImplementedError
-
-    @abstractmethod
-    def to_numpy(self) -> np.ndarray:
         raise NotImplementedError
 
     @abstractmethod
