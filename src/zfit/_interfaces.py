@@ -796,6 +796,17 @@ class ZfitLoss(ZfitObject, metaclass=ABCMeta):
         raise NotImplementedError
 
     @abstractmethod
+    def get_params(
+        self,
+        floating: bool | None = True,
+        is_yield: bool | None = None,
+        extract_independent: bool | None = True,
+        *,
+        autograd: bool | None = None,
+    ) -> set[ZfitParameter]:
+        raise NotImplementedError
+
+    @abstractmethod
     def __add__(self: T, other: T) -> T:
         raise NotImplementedError
 
