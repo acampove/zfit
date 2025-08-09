@@ -227,6 +227,10 @@ class ZfitData(ZfitDimensional):
         raise NotImplementedError
 
     @property
+    def space(self) -> ZfitSpace:
+        raise NotImplementedError
+
+    @property
     def shape(self) -> tuple:
         return self.num_entries, self.n_obs
 
