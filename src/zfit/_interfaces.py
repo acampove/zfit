@@ -961,6 +961,10 @@ class ZfitPDF(ZfitModel):
         raise NotImplementedError
 
     @abstractmethod
+    def set_yield(self, ZfitParameter):
+        raise NotImplementedError
+
+    @abstractmethod
     def get_yield(self) -> ZfitParameter | None:
         raise NotImplementedError
 
