@@ -942,18 +942,23 @@ class BaseUnbinnedNLL(BaseLoss, SerializableMixin):
         """
         if model is NONE:
             model = self.model
+
         if data is NONE:
             data = self.data
+
         if fit_range is NONE:
             fit_range = self.fit_range
+
         if constraints is NONE:
             constraints = self.constraints
             if constraints is not None:
                 constraints = constraints.copy()
+
         if options is NONE:
             options = self._options
             if isinstance(options, dict):
                 options = options.copy()
+
         return type(self)(
             model=model,
             data=data,
