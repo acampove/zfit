@@ -1272,11 +1272,11 @@ class ExtendedUnbinnedNLL(BaseUnbinnedNLL):
     def is_extended(self):
         return True
 
-    def _get_params(
+    def get_params(
         self,
-        floating: bool | None,
-        is_yield: bool | None,
-        extract_independent: bool | None,
+        floating: bool | None = True,
+        is_yield: bool | None = None,
+        extract_independent: bool | None = True,
         *,
         autograd: bool | None = None,
     ) -> set[ZfitParameter]:
