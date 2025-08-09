@@ -783,9 +783,16 @@ class ZfitIndependentParameter(ZfitParameter, metaclass=ABCMeta):
         raise NotImplementedError
 
 
+T = typing.TypeVar("T", bound="ZfitLoss")
+
+
 class ZfitLoss(ZfitObject, metaclass=ABCMeta):
     @abstractmethod
     def gradient(self, params: ztyping.ParamTypeInput = None) -> list[tf.Tensor]:
+        raise NotImplementedError
+
+    @abstractmethod
+    def __add__(self: T, other: T) -> T:
         raise NotImplementedError
 
     @abstractmethod
