@@ -953,6 +953,10 @@ class ZfitPDF(ZfitModel):
         raise NotImplementedError
 
     @abstractmethod
+    def to_numpy(self) -> np.ndarray:
+        raise NotImplementedError
+
+    @abstractmethod
     def set_norm_range(self):
         raise NotImplementedError
 
