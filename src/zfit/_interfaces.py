@@ -249,6 +249,10 @@ class ZfitData(ZfitDimensional):
         raise NotImplementedError
 
     @abstractmethod
+    def numpy(self) -> np.ndarray:
+        raise NotImplementedError
+
+    @abstractmethod
     def to_binned(self, binning: ztyping.BinningTypeInput):
         raise NotImplementedError
 
