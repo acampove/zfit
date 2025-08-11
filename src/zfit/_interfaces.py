@@ -970,7 +970,7 @@ class ZfitFunc(ZfitModel):
 
 class ZfitPDF(ZfitModel):
     @abstractmethod
-    def pdf(self, x: ztyping.XType, norm: ztyping.LimitsType = None, params=None) -> ztyping.XType:
+    def pdf(self, x: ztyping.XType, norm: ztyping.LimitsType | None = None, params=None) -> ztyping.XType:
         raise NotImplementedError
 
     @abstractmethod
