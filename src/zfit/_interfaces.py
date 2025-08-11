@@ -973,6 +973,17 @@ class ZfitPDF(ZfitModel):
     def pdf(self, x: ztyping.XType, norm: ztyping.LimitsType = None, params=None) -> ztyping.XType:
         raise NotImplementedError
 
+    @abstractmethod
+    def create_sampler(
+        self,
+        n: ztyping.nSamplingTypeIn | None = None,
+        limits: ztyping.LimitsType | None = None,
+        *,
+        params: ztyping.ParamTypeInput = None,
+        fixed_params: bool | list[ZfitParameter] | tuple[ZfitParameter] = True,  # todo: use params instead only?
+    ) -> ZfitData:
+        raise NotImplementedError
+
     @property
     @abstractmethod
     def is_extended(self) -> bool:
