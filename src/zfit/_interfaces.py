@@ -865,6 +865,17 @@ class ZfitModel(ZfitNumericParametrized, ZfitDimensional):
         raise NotImplementedError
 
     @abstractmethod
+    def create_sampler(
+        self,
+        n: ztyping.nSamplingTypeIn | None = None,
+        limits: ztyping.LimitsType | None = None,
+        *,
+        params: ztyping.ParamTypeInput = None,
+        fixed_params: bool | list[ZfitParameter] | tuple[ZfitParameter] = True,  # todo: use params instead only?
+    ) -> ZfitData:
+        raise NotImplementedError
+
+    @abstractmethod
     def integrate(self, limits: ztyping.LimitsType, norm: ztyping.LimitsType = None, *, options=None) -> ztyping.XType:
         """Integrate the function over `limits` (normalized over `norm` if not False).
 
@@ -971,17 +982,6 @@ class ZfitFunc(ZfitModel):
 class ZfitPDF(ZfitModel):
     @abstractmethod
     def pdf(self, x: ztyping.XType, norm: ztyping.LimitsType | None = None, params=None) -> ztyping.XType:
-        raise NotImplementedError
-
-    @abstractmethod
-    def create_sampler(
-        self,
-        n: ztyping.nSamplingTypeIn | None = None,
-        limits: ztyping.LimitsType | None = None,
-        *,
-        params: ztyping.ParamTypeInput = None,
-        fixed_params: bool | list[ZfitParameter] | tuple[ZfitParameter] = True,  # todo: use params instead only?
-    ) -> ZfitData:
         raise NotImplementedError
 
     @property
