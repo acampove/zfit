@@ -845,8 +845,8 @@ class BaseBinnedPDF(
 
     def create_sampler(
         self,
-        n: ztyping.nSamplingTypeIn = None,
-        limits: ztyping.LimitsType = None,
+        n: ztyping.nSamplingTypeIn | None = None,
+        limits: ztyping.LimitsType | None = None,
         *,
         params: ztyping.ParamTypeInput = None,
         fixed_params: bool | list[ZfitParameter] | tuple[ZfitParameter] = True,  # todo: use params instead only?
