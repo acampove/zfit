@@ -894,7 +894,7 @@ class Data(
         weights = self.weights
         return self.copy(obs=obs, data=dataset, weights=weights, guarantee_limits=guarantee_limits)
 
-    def to_pandas(self, obs: ztyping.ObsTypeInput = None, weightsname: str | None = None) -> pd.DataFrame:
+    def to_pandas(self, obs: ztyping.ObsTypeInput | None = None, weightsname: str | None = None) -> pd.DataFrame:
         """Create a ``pd.DataFrame`` from ``obs`` as columns and return it.
 
         Args:
