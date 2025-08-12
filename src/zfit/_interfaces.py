@@ -18,8 +18,9 @@ if typing.TYPE_CHECKING:
 
 
 class ZfitObject:
-    # TODO: make abstractmethod?
-    pass
+    @property
+    def name(self) -> str:
+        raise NotImplementedError
 
 
 class ZfitDimensional(ZfitObject):
@@ -903,10 +904,6 @@ class ZfitModel(ZfitNumericParametrized, ZfitDimensional):
 
     @property
     def space(self) -> ZfitSpace:
-        raise NotImplementedError
-
-    @property
-    def name(self) -> str:
         raise NotImplementedError
 
     @classmethod
