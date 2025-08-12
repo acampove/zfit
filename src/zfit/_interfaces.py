@@ -18,9 +18,7 @@ if typing.TYPE_CHECKING:
 
 
 class ZfitObject:
-    @property
-    def name(self) -> str:
-        raise NotImplementedError
+    """TODO Make abstract method?"""
 
 
 class ZfitDimensional(ZfitObject):
