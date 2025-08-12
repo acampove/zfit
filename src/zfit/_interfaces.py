@@ -900,6 +900,10 @@ class ZfitModel(ZfitNumericParametrized, ZfitDimensional):
     def space(self) -> ZfitSpace:
         raise NotImplementedError
 
+    @property
+    def name(self) -> str:
+        raise NotImplementedError
+
     @classmethod
     @abstractmethod
     def register_analytic_integral(
