@@ -8,6 +8,7 @@ from abc import ABCMeta, abstractmethod
 from collections.abc import Callable
 
 import numpy as np
+import pandas as pd
 import tensorflow as tf
 from uhi.typing.plottable import PlottableHistogram
 
@@ -219,6 +220,10 @@ class ZfitOrderableDimensional(ZfitDimensional, metaclass=ABCMeta):
 class ZfitData(ZfitDimensional):
     @abstractmethod
     def value(self, obs: list[str] | None = None) -> ztyping.XType:
+        raise NotImplementedError
+
+    @abstractmethod
+    def to_pandas(self, obs: ztyping.ObsTypeInput | None = None, weightsname: str | None = None) -> pd.DataFrame:
         raise NotImplementedError
 
     @property
