@@ -1,12 +1,13 @@
+'''
+This module holds tests for classes representing likelihoods
+'''
+
 #  Copyright (c) 2025 zfit
 import jacobi
 import numpy as np
 import pytest
 import tensorflow as tf
 
-import zfit.core.basepdf
-import zfit.models.dist_tfp
-import zfit.settings
 from zfit import z
 import zfit.z.numpy as znp
 from zfit.core.loss import UnbinnedNLL
