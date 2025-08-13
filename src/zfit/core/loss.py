@@ -1301,7 +1301,6 @@ class ExtendedUnbinnedNLL(BaseUnbinnedNLL):
             options=options,
         )
 
-    # ----------------------
     def _get_toy_data(self) -> ZfitData | Iterable[ZfitData]:
         """
         Returns
