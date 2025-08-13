@@ -1282,6 +1282,42 @@ class ExtendedUnbinnedNLL(BaseUnbinnedNLL):
     ) -> set[ZfitParameter]:
         return super()._get_params(floating, is_yield, extract_independent, autograd=autograd)
 
+    def create_toy(self) -> ExtendedUnbinnedNLL:
+        r"""Creates a toy likelihood by:
+        - Reusing the `fit_range`, `constraints` and `options` from original likelihood
+        - Iterate of the models
+        - For each model create toy data
+        - Return new likelihood"""
+
+        fit_range = self._fit_range
+        constraints = None if self._constraints is None else self._constraints.copy()
+        options = None if self._options is None else self._options.copy()
+
+        return type(self)(
+            model=self.model,
+            data=self._get_toy_data(),
+            fit_range=fit_range,
+            constraints=constraints,
+            options=options,
+        )
+
+    # ----------------------
+    def _get_toy_data(self) -> ZfitData | Iterable[ZfitData]:
+        """
+        Returns
+        -------------
+        Either:
+            - An iterable with data
+            - A dataset itself
+
+        Produced from the model(s) in the likelihood
+        through the `create_sampler` mechanism
+        """
+        if isinstance(self.model, ZfitPDF):
+            return self.model.create_sampler()
+
+        return [model.create_sampler() for model in self.model]
+
 
 class ExtendedUnbinnedNLLRepr(BaseLossRepr):
     _implementation = ExtendedUnbinnedNLL
