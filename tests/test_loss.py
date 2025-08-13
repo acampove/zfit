@@ -8,6 +8,7 @@ import numpy as np
 import pytest
 import tensorflow as tf
 
+import zfit
 from zfit import z
 import zfit.z.numpy as znp
 from zfit.core.loss import UnbinnedNLL
