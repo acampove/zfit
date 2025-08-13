@@ -815,6 +815,10 @@ class ZfitLoss(ZfitObject, metaclass=ABCMeta):
         raise NotImplementedError
 
     @abstractmethod
+    def create_toy(self) -> ZfitLoss:
+        raise NotImplementedError
+
+    @abstractmethod
     def __add__(self: T, other: T) -> T:
         raise NotImplementedError
 
