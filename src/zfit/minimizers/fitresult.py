@@ -327,9 +327,11 @@ class OptimizeResultMixin:
         # Try to get the optimizer success from converged first, fallback to valid
         if hasattr(self, "_converged") and self._converged is not None:
             return bool(self._converged)
+
         # Fallback to checking status code (0 usually means success)
         if hasattr(self, "_status") and self._status is not None:
             return bool(self._status == 0)
+
         # Final fallback to valid
         return bool(getattr(self, "valid", False))
 
