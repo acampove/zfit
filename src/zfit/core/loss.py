@@ -1465,11 +1465,11 @@ class SimpleLoss(BaseLoss):
             if not run.executing_eagerly():
                 raise z.DoNotCompile
 
-    def _get_params(
+    def get_params(
         self,
-        floating: bool | None,
-        is_yield: bool | None,
-        extract_independent: bool | None,
+        floating: bool | None = None,
+        is_yield: bool | None = None,
+        extract_independent: bool | None = None,
         *,
         autograd: bool | None = None,
     ) -> set[ZfitParameter]:
