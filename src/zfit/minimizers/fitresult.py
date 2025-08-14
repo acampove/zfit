@@ -1235,6 +1235,12 @@ class FitResult(OptimizeResultMixin, ZfitResult):
 
     @property
     def values(self) -> Mapping[str | ZfitParameter, float]:
+        """
+        Returns
+        ---------------
+        Dictionary with keys as parameter names and values as
+        numerical value of parameter
+        """
         return self._values
 
     @property
