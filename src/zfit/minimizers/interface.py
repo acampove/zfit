@@ -4,9 +4,11 @@ from __future__ import annotations
 import abc
 import typing
 from abc import abstractmethod
+from collections.abc import Mapping
 
 if typing.TYPE_CHECKING:
     import zfit  # noqa: F401
+    from zfit.interface import ZfitParameter
 
 
 class ZfitResult:
@@ -63,6 +65,10 @@ class ZfitResult:
 
     @abstractmethod
     def __exit__(self, exc_type, exc_val, exc_tb):
+        raise NotImplementedError
+
+    @property
+    def values(self) -> Mapping[str | ZfitParameter, float]:
         raise NotImplementedError
 
     @property
