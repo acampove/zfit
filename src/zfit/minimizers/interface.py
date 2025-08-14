@@ -52,6 +52,14 @@ class ZfitResult:
     def minimizer(self):
         raise NotImplementedError
 
+    @abstractmethod
+    def __enter__(self) -> ZfitResult:
+        raise NotImplementedError
+
+    @abstractmethod
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        raise NotImplementedError
+
     @property
     @abstractmethod
     def params(self):
