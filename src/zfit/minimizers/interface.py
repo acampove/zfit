@@ -68,6 +68,7 @@ class ZfitResult:
         raise NotImplementedError
 
     @property
+    @abstractmethod
     def values(self) -> Mapping[str | ZfitParameter, float]:
         raise NotImplementedError
 
