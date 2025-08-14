@@ -48,22 +48,22 @@ class ZfitResult:
         raise NotImplementedError
 
     @property
-    @abc.abstractmethod
+    @abstractmethod
     def minimizer(self):
         raise NotImplementedError
 
     @property
-    @abc.abstractmethod
+    @abstractmethod
     def params(self):
         raise NotImplementedError
 
     @property
-    @abc.abstractmethod
+    @abstractmethod
     def fminopt(self):
         raise NotImplementedError
 
     @property
-    @abc.abstractmethod
+    @abstractmethod
     def loss(self):
         raise NotImplementedError
 
@@ -71,7 +71,7 @@ class ZfitResult:
 class ZfitMinimizer(abc.ABC):
     """Define the minimizer interface."""
 
-    @abc.abstractmethod
+    @abstractmethod
     def minimize(self, loss, params=None, init=None):
         raise NotImplementedError
 
@@ -79,6 +79,6 @@ class ZfitMinimizer(abc.ABC):
         raise NotImplementedError
 
     @property
-    @abc.abstractmethod
+    @abstractmethod
     def tol(self):
         raise NotImplementedError
