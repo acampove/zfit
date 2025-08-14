@@ -10,6 +10,11 @@ if typing.TYPE_CHECKING:
 
 
 class ZfitResult:
+    @property
+    @abstractmethod
+    def converged(self) -> bool:
+        raise NotImplementedError
+
     @abstractmethod
     def hesse(self, params, method):
         """Calculate for ``params`` the symmetric error using the Hessian matrix.
